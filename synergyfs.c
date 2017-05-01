@@ -1029,8 +1029,7 @@ conschangeproc(void *)
 		}
 
 		if(n!=0){
-			write(kbdinfd, b, n);
-			for(r=1; r<k.repeat; r++){
+			for(r=0; r<k.repeat; r++){
 				write(kbdinfd, b, n);
 			}
 		}
