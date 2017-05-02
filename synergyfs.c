@@ -997,27 +997,10 @@ conschangeproc(void *)
 						break;
 					}
 					n = 1;
-					if(k.mod == 2) {
-						switch(k.key) {
-						case 'h':
-							b[0] = 0x08;
-							break;
-						case 'u':
-							b[0] = 0x15;
-							break;
-						case 'w':
-							b[0] = 0x17;
-							break;
-						case 'd':
-							b[0] = 0x04;
-							break;
-						case 'a':
-							b[0] = 0x01;
-							break;
-						case 'e':
-							b[0] = 0x05;
-							break;
-						default:
+					if(k.mod & 2) {
+						if(k.key >= 'a' && k.key <= 'z'){
+							b[0] = k.key - 'a' + 1;
+						} else {
 							b[0] = k.key&0x7F;
 						}
 					}else
